@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-output-reset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ESBuild plugin to reset output directory for new build",
   "main": "dist/index.js",
   "typings": "dist/index.d.js",
