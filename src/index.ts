@@ -1,6 +1,6 @@
 import { Plugin } from "esbuild";
-import path from "node:path"
-import fs from "node:fs"
+import path from "node:path";
+import fs from "node:fs";
 
 interface Props {
   /**
@@ -14,14 +14,12 @@ export default (props?: Props): Plugin => ({
   name: "Reset",
   setup: (build) => {
     build.onStart(() => {
-      if (props?.customPath) return fs.rmSync(props.customPath, { recursive: true })
-
-      if (build.initialOptions.outdir)
-        return fs.rmSync(build.initialOptions.outdir, { recursive: true })
-
-      if (build.initialOptions.outfile)
-        return fs.rmSync(path.dirname(build.initialOptions.outfile), { recursive: true })
-    })
+      const directory =
+        props?.customPath ??
+        build.initialOptions.outdir ??
+        build.initialOptions.outfile;
+      if (fs.existsSync(directory))
+        fs.rmSync(path.dirname(directory), { recursive: true });
+    });
   },
-})
-
+});
