@@ -23,6 +23,7 @@ esbuild.build({
 ```
 
 ## Using Custom Directory
+
 ```javascript
 import esbuild from "esbuild";
 import clear from "esbuild-plugin-clear";
@@ -31,8 +32,10 @@ esbuild.build({
   entryPoints: ["./src/index.js"],
   bundle: true,
   outfile: "./dist/index.js",
-  plugins: [clear({
-    customPath: "./dist"
-  })],
+  plugins: [
+    clear({
+      customPath: "./dist",
+    }),
+  ],
 });
 ```
