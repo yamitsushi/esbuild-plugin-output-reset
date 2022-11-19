@@ -1,6 +1,6 @@
 import { Plugin } from "esbuild";
 import path from "node:path";
-import fs from "node:fs";
+import fs from "fs";
 
 interface Props {
   /**
@@ -17,9 +17,9 @@ export default (props?: Props): Plugin => ({
       const directory =
         props?.customPath ??
         build.initialOptions.outdir ??
-        build.initialOptions.outfile;
-      if (fs.existsSync(directory))
-        fs.rmSync(path.dirname(directory), { recursive: true });
+        path.dirname(build.initialOptions.outfile);
+      if (fs.existsSync(directory)){
+        fs.rmSync(directory, { recursive: true });}
     });
   },
 });
