@@ -1,16 +1,24 @@
 {
   "name": "esbuild-plugin-output-reset",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "ESBuild plugin to reset output directory for new build",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.js",
+  "main": "index.js",
+  "typings": "./index.d.js",
   "keywords": [
     "ESBuild",
     "esbuild",
     "plugin"
   ],
-  "scripts": {
-    "build": "tsc"
+  "files": [
+    "./cjs.cjs",
+    "./esm.mjs",
+    "./index.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./esm.mjs",
+      "require": "./cjs.cjs"
+    }
   },
   "repository": {
     "type": "git",
@@ -22,11 +30,8 @@
     "url": "https://github.com/yamitsushi/esbuild-plugin-output-reset/issues"
   },
   "homepage": "https://github.com/yamitsushi/esbuild-plugin-output-reset#readme",
-  "dependencies": {
-    "esbuild": "^0.15.14"
-  },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "typescript": "^4.9.3"
+    "esbuild": "^0.17.5"
   }
 }
