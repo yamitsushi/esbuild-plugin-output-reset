@@ -2,7 +2,7 @@
 const fs = require("fs")
 
 /**
- * Set Environment function.
+ * clean output.
  *
  * @type {import("esbuild").Plugin}
  */
