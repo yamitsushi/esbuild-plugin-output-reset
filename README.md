@@ -12,7 +12,7 @@ yarn add esbuild-plugin-output-reset --save-dev
 
 ```javascript
 import esbuild from "esbuild";
-import clear from "esbuild-plugin-clear";
+import clear from "esbuild-plugin-output-reset";
 
 esbuild.build({
   entryPoints: ["./src/index.js"],
